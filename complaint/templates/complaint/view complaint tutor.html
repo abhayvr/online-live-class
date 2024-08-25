@@ -1,0 +1,39 @@
+{% extends 'temp/tutor1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>complaint</h2>
+		<table border="1" class="table table-striped">
+
+			<tr>
+				<th>complaint</th>
+				<th>Date</th>
+				<th>Time</th>
+                <th>Reply</th>
+			</tr>
+            {% for i in x %}
+
+            <tr>
+
+			<td>{{ i.complaint }}</td>
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+            <td>{{ i.replay }}</td>
+            </tr>
+            {% endfor %}
+
+
+			
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}

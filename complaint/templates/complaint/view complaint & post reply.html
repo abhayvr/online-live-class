@@ -1,0 +1,41 @@
+{% extends 'temp/admin1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>View complaint & post reply</h2>
+		<table border="1" class="table table-striped">
+
+			<tr>
+				<th>Compalint</th>
+				<th>Type</th>
+				<th>Detail</th>
+				<th>Date</th>
+				<th>Time</th>
+			</tr>
+            {% for i in x %}
+<tr>
+			<td>{{ i.complaint }}</td>
+			<td>{{ i.type }}</td>
+    {% if i.type == 'tutor' %}
+            <td>{{ i.tutor.name }}</td>
+    {% else %}
+            <td>{{ i.student.name }}</td>
+    {% endif %}
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+			<td><a href="/complaint/admin_reply/{{ i.complaint_id }}">Reply</a></td>
+			</tr>
+            {% endfor %}
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}
