@@ -1,0 +1,51 @@
+{% extends 'temp/student1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>View Tutor</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>Name</th>
+{#				<th>Place</th>#}
+{#				<th>Gender</th>#}
+{#				<th>DOB</th>#}
+{#				<th>Addres</th>#}
+{#				<th>Pincode</th>#}
+				<th>Subject</th>
+				<th>Email</th>
+				<th>Education</th>
+			    <th>fees</th>
+                <th>fee category</th>
+				<th>Availability</th>
+			</tr>
+            {% for i in x %}
+            <tr>
+
+			<td>{{ i.name }}</td>
+{#			<td>{{ i.place }}</td>#}
+{#			<td>{{ i.gender }}</td>#}
+{#			<td>{{ i.dob }}</td>#}
+{#			<td>{{ i.address }}</td>#}
+			<td>{{ i.subject }}</td>
+
+			<td>{{ i.email }}</td>
+			<td>{{ i.education }}</td>
+			<td>{{ i.fees }}</td>
+                <td>{{ i.fee_category}}</td>
+			<td>{{ i.availability }}</td>
+            </tr>
+            {% endfor %}
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}
