@@ -1,0 +1,36 @@
+{% extends 'temp/student1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>Study material</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>tutor_id</th>
+{#				<th>Student_id</th>#}
+				<th>type</th>
+                <th>Material</th>
+			</tr>
+            {% for i in x %}
+            <tr>
+			
+			<td>{{ i.tutor.name}}</td>
+{#			<td>{{ i.student.name }}</td>#}
+			<td>{{ i.description }}</td>
+                <td>{{ i.study_material }}</td>
+			<td><a href="/static/{{ i.study_material }}" class="btn btn-primary">Download</a></td>
+            </tr>
+            {% endfor %}
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}
