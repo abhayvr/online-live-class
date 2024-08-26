@@ -1,0 +1,38 @@
+{% extends 'temp/parent1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>View Notifications parent</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>tutor_id</th>
+				<th>Student_id</th>
+				<th>Notifications</th>
+				<th>Date</th>
+				<th>Time</th>
+			</tr>
+
+            {% for i in x %}
+
+            <tr>
+			<td>{{ i.tutor.name }}</td>
+			<td>{{ i.student.name }}</td>
+			<td>{{ i.notification }}</td>
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+            </tr>
+            {% endfor %}
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}
