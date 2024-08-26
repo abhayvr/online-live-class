@@ -1,0 +1,53 @@
+{% extends 'temp/tutor1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>Students</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>Name</th>
+{#				<th>Place</th>#}
+				<th>Gender</th>
+				<th>DOB</th>
+{#				<th>Addres</th>#}
+{#				<th>Pincode</th>#}
+				<th>Phone_No</th>
+				<th>Email</th>
+				<th>Education</th>
+{#				<th>State</th>#}
+				<th>Guardina_Info</th>
+				<th>Language</th>
+			</tr>
+            {% for i in x %}
+
+            <tr>
+
+			<td>{{ i.name }}</td>
+{#			<td>{{ i.place }}</td>#}
+			<td>{{ i.gender }}</td>
+			<td>{{ i.dob }}</td>
+{#			<td>{{ i.addres }}</td>#}
+{#			<td>{{ i.pincode }}</td>#}
+			<td>{{ i.phone_no }}</td>
+			<td>{{ i.email }}</td>
+			<td>{{ i.education }}</td>
+{#			<td>{{ i.state }}</td>#}
+			<td>{{ i.guardian_info}}</td>
+			<td>{{ i.language}}</td>
+            </tr>
+            {% endfor %}
+
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}

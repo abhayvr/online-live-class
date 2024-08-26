@@ -1,0 +1,89 @@
+{% extends 'temp/student1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>View exam student</h2>
+        <form method="post" id="exform">
+            {% csrf_token %}
+            <table border="1" class="table table-striped">
+                <tr>
+                    <td colspan="6"><div id="timer">00:00:00</div></td>
+                </tr>
+                <tr>
+    {#				<th>student name</th>#}
+                    <th>question</th>
+                    <th>option 1</th>
+                    <th>option 2</th>
+                    <th>option 3</th>
+                    <th>option 4</th>
+                    <th>answer</th>
+                </tr>
+                {% for i in x %}
+                    <tr>
+                        <td>{{ i.questions }}</td>
+                        <td>{{ i.option1 }}</td>
+                        <td>{{ i.option2 }}</td>
+                        <td>{{ i.option3 }}</td>
+                        <td>{{ i.option4 }}</td>
+                        <td>
+                            <select required name="opt{{ i.question_id }}">
+                                <option value="">Select</option>
+                                <option value="{{ i.option1 }}">{{ i.option1 }}</option>
+                                <option value="{{ i.option2 }}">{{ i.option2 }}</option>
+                                <option value="{{ i.option3 }}">{{ i.option3 }}</option>
+                                <option value="{{ i.option4 }}">{{ i.option4 }}</option>
+                            </select>
+                            <input type="hidden" name="ans{{ i.question_id }}" value="{{ i.correct_option }}">
+                        </td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="6">
+                        <input type="submit" value="Submit">
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+	</center>
+<script>
+  // Function to start the timer
+  function startTimer() {
+    var startTime = Date.now();
+
+    // Update the timer every second
+    var timerInterval = setInterval(function() {
+      var elapsedTime = Date.now() - startTime;
+      var hours = Math.floor(elapsedTime / 3600000);
+      var minutes = Math.floor((elapsedTime % 3600000) / 60000);
+      var seconds = Math.floor((elapsedTime % 60000) / 1000);
+
+      if (minutes>1){
+           document.getElementById('exform').submit();
+      }
+      // Add leading zeros if necessary
+      hours = String(hours).padStart(2, '0');
+      minutes = String(minutes).padStart(2, '0');
+      seconds = String(seconds).padStart(2, '0');
+
+      document.getElementById('timer').textContent = hours + ':' + minutes + ':' + seconds;
+    }, 1000);
+
+    return timerInterval; // Return the interval ID so it can be stopped later if needed
+  }
+
+  // Start the timer when the page loads
+  window.onload = function() {
+    startTimer();
+  };
+</script>
+</body>
+</html>
+
+{% endblock %}

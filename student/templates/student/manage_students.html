@@ -1,0 +1,57 @@
+{% extends 'temp/admin1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>Manage Students</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>Name</th>
+				<th>DOB</th>
+				<th>Place</th>
+				<th>Gender</th>
+				<th>Addres</th>
+				<th>Pincode</th>
+				<th>Email</th>
+				<th>Phone_No</th>
+				<th>education</th>
+				<th>State</th>
+				<th>Guardian info</th>
+				<th>Language</th>
+                <th>Status</th>
+
+			</tr>
+            {% for i in x %}
+
+            <tr>
+			
+			<td>{{ i.name }}</td>
+			<td>{{ i.dob }}</td>
+			<td>{{ i.place }}</td>
+			<td>{{ i.gender }}</td>
+			<td>{{ i.addres }}</td>
+			<td>{{ i.pincode }}</td>
+			<td>{{ i.email }}</td>
+			<td>{{ i.phone_no }}</td>
+			<td>{{ i.education }}</td>
+			<td>{{ i.state }}</td>
+			<td>{{ i.guardian_info}}</td>
+			<td>{{ i.language }}</td>
+                <td>{{ i.status }}</td>
+			<td><a href="/student/accp/{{ i.student_id }}">Accept</a></td>
+			<td><a href="/student/reject/{{ i.student_id }}">Rejected</a></td>
+            </tr>
+            {% endfor %}
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}
