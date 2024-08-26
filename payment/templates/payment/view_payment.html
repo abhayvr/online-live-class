@@ -1,0 +1,44 @@
+{% extends 'temp/Tutor1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>view payment</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>Parent</th>
+				<th>Tutor</th>
+{#				<th>card_holder_name</th>#}
+{#				<th>card_number</th>#}
+{#				<th>CVV</th>#}
+				<th>amount</th>
+				<th>Status</th>
+			</tr>
+            {% for i in x %}
+
+            <tr>
+			
+			<td>{{i.parent.name }}</td>
+    		<td>{{ i.tutor.name}}</td>
+{#			<td>{{ i.card_holder_name }}</td>#}
+{#			<td>{{ i.card_number }}</td>#}
+{#			<td>{{ i.cvv }}</td>#}
+			<td>{{ i.amount }}</td>
+			<td>{{ i.status }}</td>
+	
+
+            </tr>
+            {% endfor %}
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}
