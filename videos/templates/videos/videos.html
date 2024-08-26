@@ -1,0 +1,32 @@
+{% extends 'temp/tutor1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h1>Videos</h1>
+		<form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+			<table>
+				<tr>
+					<td>Video:</td>
+					<td ><input type="file" name="Video" required="" class="form-control"></td>
+				</tr>
+
+				<tr>
+					<td></td>
+					<td><input type="submit" value="upload"></td>
+				</tr>
+			</table>
+			
+		</form>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}

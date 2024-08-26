@@ -1,0 +1,38 @@
+{% extends 'temp/student1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>View Video</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>tutor_id</th>
+				<th>Student_id</th>
+				<th>video</th>
+			</tr>
+            {% for i in x %}
+
+            <tr>
+			
+			<td>{{ i.tutor.name }}</td>
+			<td>{{ i.student.name }}</td>
+			<td><video width="200" height="100" controls>
+                <source src="/static/{{ i.video_upload }}" type="video/mp4">
+                your browser does not support the video tag.
+            </video> </td>
+
+            </tr>
+            {% endfor %}
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}
