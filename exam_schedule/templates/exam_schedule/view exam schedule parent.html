@@ -1,0 +1,43 @@
+{% extends 'temp/parent1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>View Exam Schedule parent</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>Tutor_id</th>
+				<th>Student_id</th>
+
+				<th>Date</th>
+				<th>Time</th>
+				<th>Subject</th>
+                <th>Status</th>
+                <th>Result</th>
+			</tr>
+            {% for i in x %}
+            <tr>
+
+			<td>{{ i.tutor.name }}</td>
+			<td>{{ i.student.name }}</td>
+
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+			<td>{{ i.subject }}</td>
+            <td>{{ i.status }}</td>
+            <td>{{ i.result }}</td>
+            </tr>
+            {% endfor %}
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}

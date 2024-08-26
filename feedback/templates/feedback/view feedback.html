@@ -1,0 +1,39 @@
+{% extends 'temp/tutor1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>Feedback</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>Feedback</th>
+				<th>Date</th>
+				<th>Detail</th>
+{#				<th>Parent_id</th>#}
+			</tr>
+            {% for i in x %}
+
+            <tr>
+			
+			<td>{{ i.feedback }}</td>
+			<td>{{ i.date }}</td>
+                {% if i.type == 'student' %}
+			<td>{{ i.student.name }}</td>
+                {% else  %}
+			<td>{{ i.parent.name }}</td>
+            {% endif %}
+            </tr>
+            {% endfor %}
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}

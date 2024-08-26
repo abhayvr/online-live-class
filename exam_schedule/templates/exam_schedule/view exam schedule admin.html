@@ -1,0 +1,39 @@
+{% extends 'temp/admin1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>View Exam Schedule admin</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>Tutor_id</th>
+				<th>Student_id</th>
+				<th>Parent_id</th>
+				<th>Date</th>
+				<th>Time</th>
+				<th>Subject</th>
+			</tr>
+            {% for i in x %}
+            <tr>
+
+			<td>{{ i.tutor.name }}</td>
+			<td>{{ i.student.name }}</td>
+			<td>{{ i.parent.name }}</td>
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+			<td>{{ i.subject }}</td>
+            </tr>
+            {% endfor %}
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}

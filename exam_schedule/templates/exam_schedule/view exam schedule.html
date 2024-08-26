@@ -1,0 +1,52 @@
+{% extends 'temp/student1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>View Exam Schedule</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>Tutor_id</th>
+				<th>Student_id</th>
+
+				<th>Date</th>
+				<th>Time</th>
+				<th>Subject</th>
+                <td>Status</td>
+                <td>Result</td>
+                <th></th>
+			</tr>
+            {% for i in x %}
+            <tr>
+
+			<td>{{ i.tutor.name }}</td>
+			<td>{{ i.student.name }}</td>
+
+			<td>{{ i.date }}</td>
+			<td>{{ i.time }}</td>
+			<td>{{ i.subject }}</td>
+{#            <td>{{ i.attend }}</td>#}
+            <td>{{ i.status }}</td>
+            <td>{{ i.result }}</td>
+                {% if i.status == 'pending' %}
+                    <td><a href="/student/view_exam/{{ i.exam_schedule_id }}">Attend</a></td>
+                {% else %}
+                    <td>
+{#                        <td><a href="/student/view_exam/{{ i.exam_schedule_id }}">Attend</a></td>#}
+                    </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}
