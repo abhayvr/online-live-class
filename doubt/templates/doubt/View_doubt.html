@@ -1,0 +1,36 @@
+{% extends 'temp/Tutor1.html' %}
+{% block base %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<center>
+		<h2>Doubt</h2>
+		<table border="1" class="table table-striped">
+			<tr>
+				<th>tutor_id</th>
+				<th>Student_id</th>
+				<th>Description</th>
+				<th>Date</th>
+			</tr>
+            {% for i in x %}
+            <tr>
+			
+			<td>{{ i.tutor.name }}</td>
+			<td>{{ i.student.name }}</td>
+			<td>{{ i.description }}</td>
+			<td>{{ i.date}}</td>
+			<td><a href="/doubt/replay/{{ i.doubt_id }}">replay</a></td>
+            </tr>
+            {% endfor %}
+
+		</table>
+	</center>
+
+</body>
+</html>
+
+{% endblock %}
